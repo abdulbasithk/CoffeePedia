@@ -11,4 +11,3 @@ app.use(router)
 app.listen(port, () => {
     console.log(`PORTNYA: ${port}`);
 })
-
