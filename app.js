@@ -1,11 +1,13 @@
-const express = require('express');
+const express = require('express')
+const router = require('./routes/index')
 const app = express()
-const PORT = 1234
-const router = require('./Routes/index')
+const port = 3000
 
 app.set('view engine', 'ejs')
-app.use(express.urlencoded({extended: true}))
+app.use(express.urlencoded({ extended:true }))
 
 app.use(router)
 
-app.listen(PORT, () => console.log(`Coffepedia is online on ${PORT}`))
+app.listen(port, () => {
+    console.log(`PORTNYA: ${port}`);
+})
