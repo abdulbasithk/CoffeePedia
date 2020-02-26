@@ -37,13 +37,13 @@
         <% } %>
     <% } %>
     <br>
-    <form action="/" method="get">
+    <form action="/login" method="POST">
         <label for="username">Username</label><br>
         <input type="text" name="username" placeholder="12 Angry Men" minlength="3"><br>
         <label for="password">Password</label><br>
         <input type="password" name="password" placeholder="Il0p3Y0u" minlength="4"><br>
         <input type="submit" value="Login" class="btn btn-info">
-        <a href="/movies" class="btn btn-danger">Cancel</a>
+        <a href="/" class="btn btn-danger">Cancel</a>
     </form>
     <p>don't have account? <a href="/register">Register Here</a></p>
     <%- include ('./partials/bootstrap-js.ejs') %>
