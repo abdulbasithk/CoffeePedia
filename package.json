@@ -1,0 +1,23 @@
+{
+  "name": "coffeepedia",
+  "version": "1.0.0",
+  "description": "Final Project",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abdulbasithk/CoffeePedia.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abdulbasithk/CoffeePedia/issues"
+  },
+  "homepage": "https://github.com/abdulbasithk/CoffeePedia#readme",
+  "dependencies": {
+    "ejs": "^3.0.1",
+    "express": "^4.17.1"
+  }
+}
