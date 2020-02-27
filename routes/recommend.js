@@ -1,6 +1,10 @@
-const router = require('./node_modules/express').Router()
+const router = require('express').Router()
 const Controller = require('../controllers/RecommendController')
 
-router.get('/', (req, res) => res.render('recommend', {isLogin: false}))
+router.get('/', (req, res) => {
+    if(req.session.isLogin) isLogin = true
+    else isLogin = false 
+    res.render('recommend', {isLogin})
+})
 
 module.exports = router

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include ('./partials/bootstrap-css.ejs') %>
+    <style>
+        input[type=text], input[type=email], input[type=number], select {
+            width: 30%;
+            padding: 1px 20px;
+            margin: 0px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        /* form {
+            margin-left: 360px;
+        } */
+        h3 {
+            margin-left: 50px;
+        }
+        h1, h4{
+            text-align: center;
+        }
+        a {
+            text-decoration: none;
+        }
+        #form:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+    <title>Store</title>
+</head>
+<body>
+    <%- include ('./partials/navbar.ejs') %>
+    <% if (errorLogin) { %>
+        <h4><%= errorLogin %></h4>
+    <% } %>
+    <% if (coffees[0].StoreId == 1) { %>
+    <div class="container">
+        <div class="row">
+          <div class="col">
+            <div class="text-center">
+                <img src="https://i.imgur.com/QuBYZeo.png" class="rounded" alt="Fore" style="height: 200px; width: 200px;">
+            </div>
+          </div>
+    </div>
+    <% } else if (coffees[0].StoreId == 2) { %>
+        <div class="container">
+            <div class="row">
+              <div class="col">
+                <div class="text-center">
+                    <img src="https://i.imgur.com/UtTM41E.png" class="rounded" alt="Starbuck" style="height: 200px; width: 200px;">
+                </div>
+              </div>
+            </div>
+        </div>
+    <% } else { %>
+        <div class="container">
+            <div class="row">
+              <div class="col">
+                <div class="text-center">
+                    <img src="https://i.imgur.com/S62URzm.jpg" class="rounded" alt="Kopi Kenangan" style="height: 200px; width: 200px;">
+                </div>
+              </div>
+            </div>
+        </div>
+    <% } %>
+    <form action="/store/<%= coffees[0].StoreId %>" method="post">
+        <input type="hidden" name="StoreId" value="<%= coffees[0].StoreId %>"><br>
+    <% for(let i = 0; i < coffees.length; i++) { %>
+    <div id="form" class="container">
+        <div class="row">
+          <div class="col">
+            <div class="text-center">
+                <%= coffees[i].name %>
+                <input type="hidden" name="id" value="<%= coffees[i].id %>"><br>
+            </div>
+          </div>
+          <div class="col">
+            <div class="text-center">
+                <%= coffees[i].price %>
+            </div>
+          </div>
+          <div class="col">
+            <div class="text-center">
+                <label for="ammount">Amount:</label>
+                <input type="number" name="ammount" value="0" min="0" max="<%= coffees[i].ammount %>"><br>
+            </div>
+          </div>
+        </div>
+    </div>
+    <% } %>
+    <br>
+    <div class="container">
+        <div class="row">
+          <div class="col">
+            <div class="text-center">
+            </div>
+          </div>
+          <div class="col">
+            <div class="text-center">
+            </div>
+          </div>
+          <div class="col">
+            <div class="text-center">
+                <input type="submit" value="Buy" class="btn btn-info">
+                <a href="/store" class="btn btn-danger">Cancel</a>
+            </div>
+          </div>
+        </div>
+    </div>
+    <%- include ('./partials/bootstrap-js.ejs') %>
+</body>
+</html>
