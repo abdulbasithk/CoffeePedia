@@ -31,11 +31,11 @@ class Controller {
                         if (item.length > 0) {
                             if (item[0] instanceof Account) {
                                 req.session.isLogin = true;
-                                req.session.dataLogin = item[0]
+                                req.session.dataLogin = item
                                 res.redirect('/admin')
                             } else {
                                 req.session.isLogin = true;
-                                req.session.dataLogin = item[1]
+                                req.session.dataLogin = item
                                 res.redirect('/')
                             }
                         }

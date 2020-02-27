@@ -9,11 +9,12 @@ module.exports = (sequelize, DataTypes) => {
     StoreId: DataTypes.INTEGER
   }, {
     sequelize,
+    modelName: 'Coffee'
   })
   Coffee.associate = function(models) {
     // associations can be defined here
     Coffee.belongsTo(models.Store)
-    Coffee.belongsToMany(models.Customer, { through: models.CoffeeCustomer })
+    Coffee.belongsToMany(models.Order, { through: models.CoffeeOrder })
   };
   return Coffee;
 };

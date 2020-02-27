@@ -9,5 +9,6 @@ router.get('/', (req, res) => {
 
 router.get('/:id', Controller.showMenu)
 router.post('/:id', Controller.redirectToBuy)
+router.get('/:id/confirmorder', Controller.orderConfirm)
 
 module.exports = router

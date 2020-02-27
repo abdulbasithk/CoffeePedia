@@ -1,4 +1,4 @@
-const { Coffee, Store, CoffeeCustomer, Customer } = require('../models/index')
+const { Coffee, Store, Customer } = require('../models/index')
 
 class Controller {
     static findAll (req, res) {

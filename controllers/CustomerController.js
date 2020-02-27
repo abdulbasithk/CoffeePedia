@@ -1,4 +1,4 @@
-const { Customer, CoffeeCustomer, Coffee } = require('../models/index')
+const { Customer, Coffee } = require('../models/index')
 
 class Controller {
     static findAll(req, res) {
@@ -22,16 +22,6 @@ class Controller {
             })
     }
 
-    static makePurchase(req, res) {
-        CoffeeCustomer.create(req.body)
-            .then(data => {
-                res.send(data)
-            })
-
-            .catch(err => {
-                res.send(err)
-            })
-    }
 }
 
 module.exports = Controller

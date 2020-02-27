@@ -1,4 +1,4 @@
-const { Store, Coffee} = require('../models/index')
+const { Store, Coffee, CoffeeOrder, Order} = require('../models/index')
 
 class Controller {
     static findAll(req, res) {
@@ -73,16 +73,37 @@ class Controller {
     }
 
     static redirectToBuy(req, res) {
+        req.body.Customer = req.session.dataLogin
         if (req.session.isLogin) {
-            Store.findByPk(+req.params.id, {
-                include: [Coffee]
+            Order.create({
+                CustomerId: req.body.Customer[0].id,
+                date: new Date()
             })
-                .then(data => res.send(data))
-                .catch(err => res.send(err))
+            .then(data => {
+                let orderDetail = []
+                for(let i = 0; i < req.body.CoffeeId.length; i++) {
+                    orderDetail.push({CoffeeId: +req.body.CoffeeId[i], ammount: +req.body.ammount[i], OrderId: data.id})
+                }
+                CoffeeOrder.bulkCreate(orderDetail)
+                    .then(data => res.send(data))
+            })
+            .catch(err => res.send(err))
         } else {
             req.session.mustLogin = 'You must login first for order'
             res.redirect(`/store/${req.params.id}`)
         }
+    }
+
+    static orderConfirm(req, res) {
+        CoffeeOrder.findAll({
+            where: {
+                OrderId: +req.params.id
+            },
+            include: [Coffee, Order]
+        })
+            .then(data => {
+                res.send(data)
+            })
     }
 }
 
