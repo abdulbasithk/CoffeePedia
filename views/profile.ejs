@@ -45,9 +45,9 @@
           <div class="col">
             <div class="text-center">
                 <h3>Username</h3>
-                <h4>xavier</h4>
+                <h4><%= data[0].username %></h4>
                 <h3>Email</h3>
-                <h4>xavier@hacktiv.com</h4>
+                <h4><%= data[0].email %></h4>
             </div>
           </div>
           <div class="col">
@@ -63,7 +63,7 @@
                           </button>
                         </div>
                         <div class="modal-body">
-                          Rp. 891829301
+                          Rp. <%= data[0].money %>
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

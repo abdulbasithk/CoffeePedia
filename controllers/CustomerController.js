@@ -25,7 +25,11 @@ class Controller {
     static showProfile(req, res){
         Customer.findAll({
             where: {
-                id: +req.params.id
+                id: req.session.dataLogin[0].id
+            },
+            include: {
+                model: Order,
+                order: [['date', 'DESC']]
             }
         })
             .then(data => res.render('profile', { data, isLogin:true }))
@@ -41,7 +45,13 @@ class Controller {
             }],
             order: [['date', 'DESC']]
         })
-            .then(data => {
+        .then(data => {
+            if(req.session.totalHarga > data[0].Customer.money){
+                delete req.session.totalHarga
+                let msg = `Saldo kurang`
+                req.session.msg = msg
+                res.redirect('/profile')
+            }
                 data[0].orderKey = `${data[0].Customer.username}${data[0].orderKey}`
                 res.render('history', { data, isLogin:true })
             })

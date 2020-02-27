@@ -120,6 +120,7 @@ class Controller {
                         totalHarga += Number(item.ammount) * Number(item.Coffee.price)
                     }
                 }
+                req.session.totalHarga = totalHarga
                 res.render('formOrder', { data: result, isLogin:true, totalHarga })
             })
     }
