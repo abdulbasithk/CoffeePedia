@@ -1,9 +1,8 @@
 const router = require('express').Router()
 const Controller = require('../controllers/StoreController')
+const checkLogin = require('../middlewares/checkLogin')
 
-router.get('/', (req, res) => {
-    if(req.session.isLogin) isLogin = true
-    else isLogin = false
+router.get('/', checkLogin, (req, res) => {
     res.render('store', {isLogin})
 })
 

@@ -77,12 +77,16 @@ class Controller {
             Store.findByPk(+req.params.id, {
                 include: [Coffee]
             })
-                .then(data => res.send(data))
+                .then(data => res.send(req.body))
                 .catch(err => res.send(err))
         } else {
             req.session.mustLogin = 'You must login first for order'
             res.redirect(`/store/${req.params.id}`)
         }
+    }
+
+    static history(req, res) {
+        
     }
 }
 

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include ('./partials/bootstrap-css.ejs') %>
+    <style>
+        input[type=text], input[type=email], input[type=password], select {
+            width: 50%;
+            padding: 3px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        form {
+            margin-left: 360px;
+        }
+        h3 {
+            margin-left: 50px;
+        }
+        h1, h4{
+            text-align: center;
+        }
+        a {
+            text-decoration: none;
+        }
+        img.rounded:hover {
+            box-shadow: 0px 0px 15px grey;
+        }
+    </style>
+    <title>History</title>
+</head>
+<body>
+    <%- include ('./partials/navbar.ejs') %>
+    <br>
+    <br>
+    <h1>HISTORY</h1>
+    <br>
+    <div class="container">
+        <div class="row">
+          <div class="col">
+            <div class="text-center">
+                <a href="/store/1"><img src="https://i.imgur.com/QuBYZeo.png" class="rounded" alt="Fore" style="height: 200px; width: 200px;"></a>
+            </div>
+          </div>
+          <div class="col">
+            <div class="text-center">
+                <a href="/store/2"><img src="https://i.imgur.com/UtTM41E.png" class="rounded" alt="Starbuck" style="height: 200px; width: 200px;"></a>
+            </div>
+          </div>
+          <div class="col">
+            <div class="text-center">
+                <a href="/store/3"><img src="https://i.imgur.com/S62URzm.jpg" class="rounded" alt="Kopi Kenangan" style="height: 200px; width: 200px;"></a>
+            </div>
+          </div>
+        </div>
+    </div>
+    <%- include ('./partials/bootstrap-js.ejs') %>
+</body>
+</html>

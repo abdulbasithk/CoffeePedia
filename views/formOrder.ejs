@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include ('./partials/bootstrap-css.ejs') %>
+    <style>
+        input[type=text], input[type=email], input[type=number], select {
+            width: 30%;
+            padding: 1px 20px;
+            margin: 0px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        /* form {
+            margin-left: 360px;
+        } */
+        h3 {
+            margin-left: 50px;
+        }
+        h1, h4{
+            text-align: center;
+        }
+        a {
+            text-decoration: none;
+        }
+        #form:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+    <title>Store</title>
+</head>
+<body>
+    <%- include ('./partials/navbar.ejs') %>
+    <br>
+    <br>
+    <div class="row">
+        <div class="col">
+            <div class="text-center">
+            </div>
+        </div>
+        <div class="col">
+            <div class="text-center">
+            </div>
+        </div>
+        <div class="col">
+            <div class="text-center">
+                MY MONEY: 3814789174987128
+            </div>
+        </div>
+    </div>
+    <h1>Confirm Order</h1>
+    <br>
+    <form action="/history" method="get">
+    <input type="hidden" name="StoreId" value="<%= orders[0] %>"><br>
+    <div id="form" class="container">
+        <% for(let i = 0; i < orders.length; i++) { %>
+            <div class="row">
+                <div class="col">
+                    <div class="text-center">
+                        <label for="name">NAME COFFEE</label>
+                        <input type="text" name="name" value="Coffee"><br>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="text-center">
+                        <label for="ammount">AMOUNT:</label>
+                        <input type="text" name="ammount" value="total" min="0"><br>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="text-center">
+                        <label for="name">HARGA DIKALI AMOUNT</label>
+                        <input type="text" name="name" value="Coffee"><br>
+                    </div>
+                </div>
+            </div>
+        <% } %>
+        <br>
+        <div class="row">
+            <div class="col">
+                <div class="text-center">
+                </div>
+            </div>
+            <div class="col">
+                <div class="text-center">
+                </div>
+            </div>
+            <div class="col">
+                <div class="text-center">
+                    TOTAL HARGA
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="container">
+        <div class="row">
+          <div class="col">
+            <div class="text-center">
+            </div>
+          </div>
+          <div class="col">
+            <div class="text-center">
+            </div>
+          </div>
+          <div class="col">
+            <div class="text-center">
+                <input type="submit" value="Confirm" class="btn btn-info">
+                <a href="/store" class="btn btn-danger">Cancel</a>
+            </div>
+          </div>
+        </div>
+    </div>
+    <%- include ('./partials/bootstrap-js.ejs') %>
+</body>
+</html>
