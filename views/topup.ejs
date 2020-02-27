@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include ('./partials/bootstrap-css.ejs') %>
+    <style>
+        input[type=text], input[type=email], input[type=password], select {
+            width: 50%;
+            padding: 3px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        form, p {
+            margin-left: 360px;
+        }
+        h1, h4{
+            text-align: center;
+        }
+        a {
+            text-decoration: none;
+        }
+    </style>
+    <title>Form TopUp</title>
+</head>
+<body>
+    <%- include ('./partials/navbar.ejs') %>
+    <br>
+    <h1>Login</h1>
+    <br>
+    <% if (errors) { %>
+        <% for (let i = 0; i < errors.length; i++) { %>
+            <h4><%= errors[i] %></h4>
+        <% } %>
+    <% } %>
+    <br>
+    <form action="/login" method="post">
+        <label for="money">Top Up</label><br>
+        <input type="text" name="money" placeholder="10000000" minlength="3"><br>
+        <input type="submit" value="Login" class="btn btn-info">
+        <a href="/" class="btn btn-danger">Cancel</a>
+    </form>
+    <%- include ('./partials/bootstrap-js.ejs') %>
+</body>
+</html>
