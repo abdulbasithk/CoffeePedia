@@ -38,10 +38,27 @@ class Controller {
                 where: {
                     id: +req.params.id
                 }
-            }]
+            }],
+            order: [['date', 'DESC']]
         })
             .then(data => {
+                data[0].orderKey = `${data[0].Customer.username}${data[0].orderKey}`
+                res.render('history', { data, isLogin:true })
+            })
+    }
 
+    static delete(req, res) {
+        Order.destroy({
+            where: {
+                id: +req.params.id
+            }
+        })
+            .then(data => {
+                res.redirect('/store')
+            })
+
+            .catch(err => {
+                res.send(err)
             })
     }
 }

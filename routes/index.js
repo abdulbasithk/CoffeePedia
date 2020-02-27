@@ -3,8 +3,7 @@ const LoginController = require('../controllers/LoginController')
 const StoreRouter = require('./store')
 const RecommendRouter = require('./recommend')
 const checkLogin = require('../middlewares/checkLogin.js')
-const Controller = require('../controllers/CustomerController')
-const CustomerRoute = require('./customer')
+const CustomerController = require('../controllers/CustomerController')
 
 router.get('/', checkLogin,(req, res) => {
     res.render('homeUpdate', { isLogin })
@@ -18,15 +17,17 @@ router.get('/logout', LoginController.logout)
 router.get('/register', LoginController.getRegister)
 router.post('/register', LoginController.create)
 router.get('/menu', (req, res) => res.render('menu'))
-router.get('/profile', (req, res) => res.send('Profile'))
+router.get('/profile', (req, res) => res.render('profile'))
 router.get('/profile/:id', (req, res) => {
-    Controller.showProfile(req, res)
+    CustomerController.showProfile(req, res)
 })
 router.get('/profile/:id/history', (req, res) => {
-    Controller.history(req, res)
+    CustomerController.history(req, res)
+})
+router.get('/profile/:id/delete', (req, res) => {
+    CustomerController.delete(req, res)
 })
 router.use('/store', StoreRouter)
 router.use('/recommend', RecommendRouter)
-
 
 module.exports = router
