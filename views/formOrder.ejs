@@ -14,9 +14,6 @@
             border-radius: 4px;
             box-sizing: border-box;
         }
-        /* form {
-            margin-left: 360px;
-        } */
         h3 {
             margin-left: 50px;
         }
@@ -47,33 +44,32 @@
         </div>
         <div class="col">
             <div class="text-center">
-                MY MONEY: 3814789174987128
+                SALDO : <%= data[0].Order.Customer.money %>
             </div>
         </div>
     </div>
     <h1>Confirm Order</h1>
     <br>
-    <form action="/history" method="get">
-    <input type="hidden" name="StoreId" value="<%= orders[0] %>"><br>
+    <form action="/user/profile/<%= data[0].Order.Customer.id %>/history" method="POST"><br>
     <div id="form" class="container">
-        <% for(let i = 0; i < orders.length; i++) { %>
+        <% for(let i = 0; i < data.length; i++) { %>
             <div class="row">
                 <div class="col">
                     <div class="text-center">
-                        <label for="name">NAME COFFEE</label>
-                        <input type="text" name="name" value="Coffee"><br>
+                        <label for="name"><%= data[i].Coffee.name %></label>
+                        <input type="hidden" name="name" value="Coffee"><br>
                     </div>
                 </div>
                 <div class="col">
                     <div class="text-center">
-                        <label for="ammount">AMOUNT:</label>
-                        <input type="text" name="ammount" value="total" min="0"><br>
+                        <label for="ammount"><%= data[i].ammount %></label>
+                        <input type="hidden" name="ammount" value="total" min="0"><br>
                     </div>
                 </div>
                 <div class="col">
                     <div class="text-center">
-                        <label for="name">HARGA DIKALI AMOUNT</label>
-                        <input type="text" name="name" value="Coffee"><br>
+                        <label for="name"><%= data[i].ammount * data[i].Coffee.price %></label>
+                        <input type="hidden" name="name" value="Coffee"><br>
                     </div>
                 </div>
             </div>
@@ -90,7 +86,7 @@
             </div>
             <div class="col">
                 <div class="text-center">
-                    TOTAL HARGA
+                    <%= totalHarga %> 
                 </div>
             </div>
         </div>
@@ -108,7 +104,7 @@
           </div>
           <div class="col">
             <div class="text-center">
-                <input type="submit" value="Confirm" class="btn btn-info">
+                <a href="/user/profile/<%= data[0].Order.Customer.id %>/history" class="btn btn-info">Submit</a>
                 <a href="/store" class="btn btn-danger">Cancel</a>
             </div>
           </div>

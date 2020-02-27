@@ -1,4 +1,5 @@
-const { Customer, Coffee } = require('../models/index')
+const { Customer, Coffee, Order } = require('../models/index')
+const checkLogin = require('../middlewares/checkLogin')
 
 class Controller {
     static findAll(req, res) {
@@ -21,7 +22,28 @@ class Controller {
                 res.send(err)
             })
     }
+    static showProfile(req, res){
+        Customer.findAll({
+            where: {
+                id: +req.params.id
+            }
+        })
+            .then(data => res.render('profile', { data, isLogin:true }))
+    }
 
+    static history(req, res) {
+        Order.findAll({
+            include: [{
+                model: Customer,
+                where: {
+                    id: +req.params.id
+                }
+            }]
+        })
+            .then(data => {
+
+            })
+    }
 }
 
 module.exports = Controller

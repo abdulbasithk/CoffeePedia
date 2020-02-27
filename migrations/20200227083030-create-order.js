@@ -11,6 +11,12 @@ module.exports = {
       date: {
         type: Sequelize.DATE
       },
+      orderKey: {
+        type: Sequelize.STRING
+      },
+      status: {
+        type: Sequelize.STRING
+      },
       CustomerId: {
         type: Sequelize.INTEGER,
         references: {
