@@ -20,6 +20,7 @@ router.get('/menu', (req, res) => res.render('menu'))
 router.get('/profile', (req, res) => {
     CustomerController.showProfile(req, res)
 })
+
 router.get('/profile/:id/history', (req, res) => {
     CustomerController.history(req, res)
 })
