@@ -18,7 +18,7 @@ module.exports = {
     },{
       username: 'xavier',
       password: 'xavier',
-      email: 'xavier@gmail.com',
+      email: 'xavier.thufail@gmail.com',
       money: 20000,
       createdAt: new Date(),
       updatedAt: new Date()

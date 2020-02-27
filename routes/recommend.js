@@ -1,9 +1,6 @@
 const router = require('express').Router()
-const Controller = require('../controllers/RecommendController')
-const checkLogin = require('../middlewares/checkLogin')
+const Controller = require('../controllers/StoreController')
 
-router.get('/', checkLogin,(req, res) => {
-    res.render('recommend', {isLogin})
-})
+router.get('/', Controller.showRecommend)
 
 module.exports = router

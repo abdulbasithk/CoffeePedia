@@ -1,5 +1,5 @@
 const { Store, Coffee, CoffeeOrder, Order, Customer } = require('../models/index')
-
+const fs = require('fs')
 class Controller {
     static findAll(req, res) {
         Store.findAll()
@@ -122,6 +122,18 @@ class Controller {
                 }
                 req.session.totalHarga = totalHarga
                 res.render('formOrder', { data: result, isLogin:true, totalHarga })
+            })
+    }
+    static showRecommend(req, res) {
+        CoffeeOrder.findAll({ include: [Order, { model: Coffee, include: [Store]}]})
+            .then(data => {
+                let chart = {type:'bar',data:{labels:['Fore','Starbuck','Kenangan'],datasets:[{label:'Store',data:[0,0,0]}]}}
+                for(let i = 0; i < data.length; i++) {
+                    if(data[i].Coffee.Store.id === 1) chart.data.datasets[0].data[0] += (data[i].ammount)
+                    else if(data[i].Coffee.Store.id === 2) chart.data.datasets[0].data[1] += (data[i].ammount)
+                    else if(data[i].Coffee.Store.id === 3) chart.data.datasets[0].data[2] += (data[i].ammount)
+                }
+                res.render('recommend', { isLogin:true, data, chart })
             })
     }
 }

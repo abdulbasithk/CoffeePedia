@@ -44,17 +44,10 @@
           </div>
           <div class="col">
             <div class="text-center">
-<<<<<<< HEAD
                 <h3>Username</h3>
                 <h4><%= data[0].username %></h4>
                 <h3>Email</h3>
                 <h4><%= data[0].email %></h4>
-=======
-                <h3>Username:</h3>
-                <h4>xavier</h4>
-                <h3>Email:</h3>
-                <h4>xavier@hacktiv.com</h4>
->>>>>>> 2aa88c60ff505d5afb222e2ac3a4dcafd4c9383e
             </div>
           </div>
           <div class="col">
@@ -77,7 +70,7 @@
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                          <a href="/profile/topup/1"><button type="button" class="btn btn-primary">TopUp</button></a>
+                          <a href="/profile/<%= data[0].id %>/topup"><button type="button" class="btn btn-primary">TopUp</button></a>
                         </div>
                       </div>
                     </div>
@@ -93,7 +86,7 @@
                           </button>
                         </div>
                         <div class="modal-body">
-                          history
+                          <img src="http://api.qrserver.com/v1/create-qr-code/?data=<%= data[0].orderKey %>&size-200x200" class="rounded" id="Starbuck" style="height: 200px; width: 200px;">
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -103,7 +96,13 @@
                 </div>
             </div>
           </div>
+          
         </div>
+    </div>
+    <div>
+      <% if (errors) { %>
+        <h3><%= errors %></h3>
+      <% } %>
     </div>
     <%- include ('./partials/bootstrap-js.ejs') %>
 </body>

@@ -27,6 +27,12 @@ router.get('/profile/:id/history', (req, res) => {
 router.get('/profile/:id/delete', (req, res) => {
     CustomerController.delete(req, res)
 })
+router.get('/profile/:id/topup', (req, res) => {
+    CustomerController.showtopup(req, res)
+})
+router.post('/profile/:id/topup', (req, res) => {
+    CustomerController.topup(req, res)
+})
 router.use('/store', StoreRouter)
 router.use('/recommend', RecommendRouter)
 

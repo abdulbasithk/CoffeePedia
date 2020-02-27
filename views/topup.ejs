@@ -37,11 +37,11 @@
         <% } %>
     <% } %>
     <br>
-    <form action="/login" method="post">
+    <form action="/profile/<%= data[0].id %>/topup" method="post">
         <label for="money">Top Up</label><br>
-        <input type="text" name="money" placeholder="10000000" minlength="3"><br>
+        <input type="number" name="money" placeholder="10000000"><br>
         <input type="submit" value="Login" class="btn btn-info">
-        <a href="/" class="btn btn-danger">Cancel</a>
+        <a href="/profile" class="btn btn-danger">Cancel</a>
     </form>
     <%- include ('./partials/bootstrap-js.ejs') %>
 </body>
