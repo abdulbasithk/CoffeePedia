@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%- include ('./partials/bootstrap-css.ejs') %>
+    <!-- <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
     <style>
         input[type=text], input[type=email], input[type=password], select {
             width: 50%;
@@ -20,7 +21,7 @@
         h3 {
             margin-left: 50px;
         }
-        h1, h4{
+        h1{
             text-align: center;
         }
         a {
@@ -29,6 +30,15 @@
         img.rounded:hover {
             box-shadow: 0px 0px 15px grey;
         }
+        body{padding-top:30px;}
+
+        .glyphicon {  margin-bottom: 10px;margin-right: 10px;}
+
+        small {
+            display: block;
+            line-height: 1.428571429;
+            color: #999;
+        }
     </style>
     <title>Profile</title>
 </head>
@@ -36,27 +46,67 @@
     <%- include ('./partials/navbar.ejs') %>
     <br>
     <br>
-    <h1>PROFILE</h1>
     <br>
-    <div class="container">
-        <div class="row">
-          <div class="col">
-            <div class="text-center">
-                <a href="/store/1"><img src="https://i.imgur.com/QuBYZeo.png" class="rounded" alt="Fore" style="height: 200px; width: 200px;"></a>
-            </div>
-          </div>
-          <div class="col">
-            <div class="text-center">
-                <a href="/store/2"><img src="https://i.imgur.com/UtTM41E.png" class="rounded" alt="Starbuck" style="height: 200px; width: 200px;"></a>
-            </div>
-          </div>
-          <div class="col">
-            <div class="text-center">
-                <a href="/store/3"><img src="https://i.imgur.com/S62URzm.jpg" class="rounded" alt="Kopi Kenangan" style="height: 200px; width: 200px;"></a>
-            </div>
-          </div>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+        Launch demo modal
+    </button>
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            ...
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
         </div>
     </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-6">
+                <div class="well well-sm">
+                    <div class="row">
+                        <div class="col-sm-6 col-md-4">
+                            <img src="https://i.imgur.com/mLcYtQb.jpg" alt="" class="img-rounded img-responsive" />
+                        </div>
+                        <div class="col-sm-6 col-md-8">
+                            <h4>
+                                Bhaumik Patel</h4>
+                            <small><cite title="San Francisco, USA">San Francisco, USA <i class="glyphicon glyphicon-map-marker">
+                            </i></cite></small>
+                            <p>
+                                <i class="glyphicon glyphicon-envelope"></i>email@example.com
+                                <br />
+                                <i class="glyphicon glyphicon-globe"></i><a href="http://www.jquery2dotnet.com">www.jquery2dotnet.com</a>
+                                <br />
+                            <!-- Split button -->
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-primary">Social</button>
+                                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                                    <span class="sr-only">Social</span>
+                                </button>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="#">Twitter</a></li>
+                                    <li><a href="https://plus.google.com/+Jquery2dotnet/posts">Google +</a></li>
+                                    <li><a href="https://www.facebook.com/jquery2dotnet">Facebook</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#">Github</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>    
     <%- include ('./partials/bootstrap-js.ejs') %>
 </body>
 </html>

@@ -9,6 +9,7 @@ const CustomerRoute = require('./customer')
 router.get('/', checkLogin,(req, res) => {
     res.render('homeUpdate', { isLogin })
 })
+router.get('/formorder', (req, res) => res.render('qrCode', {isLogin: false}))
 
 router.get('/login', LoginController.getLogin)
 router.post('/login', LoginController.postLogin)
