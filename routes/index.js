@@ -18,10 +18,11 @@ router.get('/logout', LoginController.logout)
 router.get('/register', LoginController.getRegister)
 router.post('/register', LoginController.create)
 router.get('/menu', (req, res) => res.render('menu'))
-router.get('/profile', (req, res) => res.send('Profile'))
+router.get('/profile', (req, res) => res.render('profile'))
 router.get('/profile/:id', (req, res) => {
     Controller.showProfile(req, res)
 })
+
 router.get('/profile/:id/history', (req, res) => {
     Controller.history(req, res)
 })
