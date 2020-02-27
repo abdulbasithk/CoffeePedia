@@ -21,6 +21,7 @@ router.get('/profile', (req, res) => res.render('profile'))
 router.get('/profile/:id', (req, res) => {
     CustomerController.showProfile(req, res)
 })
+
 router.get('/profile/:id/history', (req, res) => {
     CustomerController.history(req, res)
 })

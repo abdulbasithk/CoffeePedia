@@ -23,9 +23,6 @@
         a {
             text-decoration: none;
         }
-        #form:nth-child(even) {
-            background-color: #dddddd;
-        }
     </style>
     <title>Store</title>
 </head>
@@ -50,46 +47,34 @@
     </div>
     <h1>Confirm Order</h1>
     <br>
-    <form action="/user/profile/<%= data[0].Order.Customer.id %>/history" method="POST"><br>
-    <div id="form" class="container">
-        <% for(let i = 0; i < data.length; i++) { %>
-            <div class="row">
-                <div class="col">
-                    <div class="text-center">
-                        <label for="name"><%= data[i].Coffee.name %></label>
-                        <input type="hidden" name="name" value="Coffee"><br>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="text-center">
-                        <label for="ammount"><%= data[i].ammount %></label>
-                        <input type="hidden" name="ammount" value="total" min="0"><br>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="text-center">
-                        <label for="name"><%= data[i].ammount * data[i].Coffee.price %></label>
-                        <input type="hidden" name="name" value="Coffee"><br>
-                    </div>
-                </div>
-            </div>
-        <% } %>
-        <br>
-        <div class="row">
-            <div class="col">
-                <div class="text-center">
-                </div>
-            </div>
-            <div class="col">
-                <div class="text-center">
-                </div>
-            </div>
-            <div class="col">
-                <div class="text-center">
-                    <%= totalHarga %> 
-                </div>
-            </div>
-        </div>
+    <br>
+    <div>
+        <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">No</th>
+                <th scope="col">Coffee</th>
+                <th scope="col">Amount</th>
+                <th scope="col">Total</th>
+              </tr>
+            </thead>
+            <tbody>
+            <% for(let i = 0; i < data.length; i++) { %>
+                <tr>
+                    <th scope="row"><%= i + 1 %></th>
+                    <td><%= data[i].Coffee.name %></td>
+                    <td><%= data[i].ammount %></td>
+                    <td><%= data[i].ammount * data[i].Coffee.price %></td>
+                </tr>
+            <% } %>
+            <tr>
+                <th scope="row"></th>
+                <td></td>
+                <td></td>
+                <td><%= totalHarga %></td>
+            </tr>
+            </tbody>
+        </table>              
     </div>
     <br>
     <div class="container">
