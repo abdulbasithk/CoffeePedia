@@ -37,20 +37,25 @@
     <%- include ('./partials/navbar.ejs') %>
     <br>
     <br>
-    <h1>STORE</h1>
+    <h1>Here is your Order</h1>
     <br>
     <div class="container">
         <div class="row">
           <div class="col">
             <div class="text-center">
-                <a href="/store/2"><img src="http://api.qrserver.com/v1/create-qr-code/?data=<%= data[0].orderKey %>&size-200x200" class="rounded" id="Starbuck" style="height: 200px; width: 200px;"></a>
+                <img src="http://api.qrserver.com/v1/create-qr-code/?data=<%= data[0].orderKey %>&size-200x200" class="rounded" id="Starbuck" style="height: 200px; width: 200px;">
             </div>
           </div>
         </div>
     </div>
+    <br>
+    <br>
+    <h4>Please wait a moment</h4>
     <%- include ('./partials/bootstrap-js.ejs') %>
-    <style>
-        
-    </style>
+    <script>
+        function myFunction() {
+            setInterval(function(){ return 'Your Coffee has been made, thank you' }, 3000);
+        }
+    </script>
 </body>
 </html>
