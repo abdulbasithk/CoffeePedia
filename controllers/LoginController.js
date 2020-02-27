@@ -43,7 +43,7 @@ class Controller {
                 }
             })
             .catch(err => {
-                console.log(err);
+                res.send(err);
             })
     }
     static logout(req, res) {
