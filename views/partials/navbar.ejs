@@ -14,8 +14,19 @@
         <a class="nav-link" href="/menu">Menu</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/recommendation">Recommendation</a>
+        <a class="nav-link" href="/recommend">Recommendation</a>
       </li>
+      <% if (isLogin) {%>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Profile
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="/profile">Show Profile</a>
+            <a class="dropdown-item" href="/history">History</a>
+          </div>
+        </li>
+      <% } %>
     </ul>
     <% if (isLogin) {%>
       <span class="navbar-text">

@@ -24,7 +24,7 @@
             text-decoration: none;
         }
     </style>
-    <title>Form Create</title>
+    <title>Form Signup</title>
 </head>
 <body>
     <%- include ('./partials/navbar.ejs') %>
@@ -37,7 +37,7 @@
         <% } %>
     <% } %>
     <br>
-    <form action="/movies/add" method="post">
+    <form action="/register" method="post">
         <label for="username">Username</label><br>
         <input type="text" name="username" placeholder="12 Angry Men" minlength="3"><br>
         <label for="password">Password</label><br>
@@ -47,7 +47,7 @@
         <label for="money">Money</label><br>
         <input type="text" name="money" placeholder="999999999" minlength="4"><br>
         <input type="submit" value="Save" class="btn btn-info">
-        <a href="/movies" class="btn btn-danger">Cancel</a>
+        <a href="/" class="btn btn-danger">Cancel</a>
     </form>
     <%- include ('./partials/bootstrap-js.ejs') %>
 </body>
