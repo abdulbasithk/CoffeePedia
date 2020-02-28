@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%- include ('./partials/bootstrap-css.ejs') %>
     <style>
-        input[type=text], input[type=email], input[type=password], select {
+        input[type=text], input[type=number], input[type=date], select {
             width: 50%;
             padding: 3px 20px;
             margin: 8px 0;
@@ -14,7 +14,7 @@
             border-radius: 4px;
             box-sizing: border-box;
         }
-        form, p {
+        form {
             margin-left: 360px;
         }
         h1, h4{
@@ -24,25 +24,20 @@
             text-decoration: none;
         }
     </style>
-    <title>Form TopUp</title>
+    <title>Form Add</title>
 </head>
 <body>
-    <%- include ('./partials/navbar.ejs') %>
+    <%- include ('./partials/navbarAdmin.ejs') %>
     <br>
-    <h1>Login</h1>
+    <h1>Edit Store</h1>
     <br>
-    <% if (errors) { %>
-        <% for (let i = 0; i < errors.length; i++) { %>
-            <h4><%= errors[i] %></h4>
-        <% } %>
-    <% } %>
-    <br>
-    <form action="/profile/<%= data[0].id %>/topup" method="post">
-        <label for="money">Top Up</label><br>
-        <input type="number" name="money" placeholder="10000000"><br>
-        <br>
-        <input type="submit" value="TopUp" class="btn btn-info">
-        <a href="/profile" class="btn btn-danger">Cancel</a>
+    <form action="/admin/editStore/<%= store.id %>" method="post">
+        <label for="name">Name Store</label><br>
+        <input type="text" name="name" value="<%= store.name %>" minlength="3"><br>
+        <label for="location">Location</label><br>
+        <input type="text" name="location" value="<%= store.location %>" minlength="1"><br>
+        <input type="submit" value="Edit" class="btn btn-info">
+        <a href="/admin/listCoffee" class="btn btn-danger">Cancel</a>
     </form>
     <%- include ('./partials/bootstrap-js.ejs') %>
 </body>

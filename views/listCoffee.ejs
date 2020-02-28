@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include ('./partials/bootstrap-css.ejs') %>
+    <title>Coffee</title>
+    <style>
+    table {
+        margin-left: 50px;
+        border-collapse: collapse;
+        width: 90%;
+        border: 1px solid rgb(109, 107, 107);
+    }
+    /* table, td, th {
+        border: 1px solid black;
+    } */
+
+    h1 {
+        margin-top: 50px;
+        margin-left: 50px;
+    }
+
+    th, td {
+        text-align: left;
+        padding: 8px;
+    }
+
+    th {
+        background-color: rgb(146, 228, 243);
+        color: black;
+    }
+    </style>
+</head>
+<body>
+    <%- include ('./partials/navbarAdmin.ejs') %>
+    <h1>Stores</h1>
+    <a href="/admin/addStore" style="margin-left: 50px;" class="btn btn-success">Add Store</a>
+    <br>
+    <br>
+    <table>
+        <tr>
+            <th>No</th>
+            <th>Store Name</th>
+            <th>Location</th>
+            <th>Coffee</th>
+            <th>Actions</th>
+        </tr>
+        <% for (let i = 0; i < stores.length; i++) { %>
+            <tr>
+                <td><%= stores[i].id%></td>
+                <td><%= stores[i].name%></td>
+                <td><%= stores[i].location%></td>
+                <td><%= stores[i].Coffees %></td>
+                <td><a href="/admin/editStore/<%= stores[i].id %>" class="btn btn-info">Edit</a><br><br><a href="/admin/delete/<%= stores[i].id %>" class="btn btn-info" onclick="return confirm('Are you sure you want to delete this Store?')">Delete</a></td>
+            </tr>
+        <% } %>
+    </table>
+    <%- include ('./partials/bootstrap-js.ejs') %>
+</body>
+</html>

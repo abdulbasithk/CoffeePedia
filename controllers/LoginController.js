@@ -31,6 +31,7 @@ class Controller {
                         if (item.length > 0) {
                             if (item[0] instanceof Account) {
                                 req.session.isLogin = true;
+                                req.session.isAdmin = true;
                                 req.session.dataLogin = item
                                 res.redirect('/admin')
                             } else {

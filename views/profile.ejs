@@ -17,7 +17,7 @@
         form {
             margin-left: 360px;
         }
-        h1{
+        h1, h3{
             text-align: center;
         }
         a {
@@ -35,6 +35,11 @@
     <br>
     <h1>PROFILE</h1>
     <br>
+    <div>
+      <% if (errors) { %>
+        <h3><%= errors %></h3>
+      <% } %>
+    </div>
     <div class="container">
         <div class="row">
           <div class="col">
@@ -86,7 +91,7 @@
                           </button>
                         </div>
                         <div class="modal-body">
-                          <img src="http://api.qrserver.com/v1/create-qr-code/?data=<%= data[0].orderKey %>&size-200x200" class="rounded" id="Starbuck" style="height: 200px; width: 200px;">
+                          <img src="http://api.qrserver.com/v1/create-qr-code/?data=<%= data[0].Orders[0].orderKey %>&size-200x200" class="rounded" id="Starbuck" style="height: 200px; width: 200px;">
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -98,11 +103,6 @@
           </div>
           
         </div>
-    </div>
-    <div>
-      <% if (errors) { %>
-        <h3><%= errors %></h3>
-      <% } %>
     </div>
     <%- include ('./partials/bootstrap-js.ejs') %>
 </body>
