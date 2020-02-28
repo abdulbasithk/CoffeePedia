@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include ('./partials/bootstrap-css.ejs') %>
+    <style>
+        input[type=text], input[type=number], input[type=date], select {
+            width: 50%;
+            padding: 3px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        form {
+            margin-left: 360px;
+        }
+        h1, h4{
+            text-align: center;
+        }
+        a {
+            text-decoration: none;
+        }
+    </style>
+    <title>Form Add</title>
+</head>
+<body>
+    <%- include ('./partials/navbarAdmin.ejs') %>
+    <br>
+    <h1>Add Coffee</h1>
+    <br>
+    <form action="/admin/addCoffee" method="post">
+        <label for="name">Name Coffee</label><br>
+        <input type="text" name="name" placeholder="e.g: Espresso" minlength="3"><br>
+        <label for="ammount">amount</label><br>
+        <input type="number" name="ammount" placeholder="e.g: 100" minlength="1"><br>
+        <label for="price">Price</label><br>
+        <input type="number" name="price" placeholder="10000" minlength="4"><br>
+        <select id="StoreId" name="StoreId"><br>
+            <option value="">----Choose Store----</option>
+            <% for (let i = 0; i < stores.length; i++) { %>
+                <option value="<%= stores[i].id %>"><%= stores[i].name %></option><br>
+            <% } %>
+        </select><br>
+        <input type="submit" value="Add" class="btn btn-info">
+        <a href="/admin" class="btn btn-danger">Cancel</a>
+    </form>
+    <%- include ('./partials/bootstrap-js.ejs') %>
+</body>
+</html>

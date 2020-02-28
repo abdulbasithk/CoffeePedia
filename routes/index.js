@@ -4,6 +4,8 @@ const StoreRouter = require('./store')
 const RecommendRouter = require('./recommend')
 const checkLogin = require('../middlewares/checkLogin.js')
 const CustomerController = require('../controllers/CustomerController')
+const AdminRouter = require('./admin')
+const isAdmin = require('../middlewares/checkAdmin')
 
 router.get('/', checkLogin,(req, res) => {
     res.render('homeUpdate', { isLogin })
@@ -35,5 +37,7 @@ router.post('/profile/:id/topup', (req, res) => {
 })
 router.use('/store', StoreRouter)
 router.use('/recommend', RecommendRouter)
+router.use(isAdmin)
+router.use('/admin', AdminRouter)
 
 module.exports = router

@@ -36,7 +36,6 @@ class Controller {
                 delete req.session.msg
                 res.render('profile', { data, isLogin:true, errors:msg})
             })
-
             .catch(err => res.send(err))
     }
 

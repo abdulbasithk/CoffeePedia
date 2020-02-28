@@ -133,7 +133,7 @@ class Controller {
                     else if(data[i].Coffee.Store.id === 2) chart.data.datasets[0].data[1] += (data[i].ammount)
                     else if(data[i].Coffee.Store.id === 3) chart.data.datasets[0].data[2] += (data[i].ammount)
                 }
-                res.render('recommend', { isLogin:true, data, chart })
+                res.render('recommend', { isLogin, data, chart })
             })
     }
 }
